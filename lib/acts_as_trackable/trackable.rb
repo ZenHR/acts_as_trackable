@@ -23,8 +23,8 @@ module Trackable
     }
 
     def self.left_join_users(action, user_type)
-      "LEFT JOIN #{user_type.downcase.pluralize} AS #{action}_#{user_type.downcase.pluralize} " \
-      "ON #{action}_#{user_type.downcase.pluralize}.id = object_activities.#{action}_id " \
+      "LEFT JOIN #{user_type.underscore.pluralize} AS #{action}_#{user_type.underscore.pluralize} " \
+      "ON #{action}_#{user_type.underscore.pluralize}.id = object_activities.#{action}_id " \
       "AND object_activities.#{action}_type = '#{user_type}'"
     end
 
