@@ -1,4 +1,4 @@
-<!-- [![Gem Version](https://badge.fury.io/rb/acts_as_trackable.svg)](https://badge.fury.io/rb/acts_as_trackable) -->
+[![Gem Version](https://badge.fury.io/rb/acts_as_trackable.svg)](https://badge.fury.io/rb/acts_as_trackable)
 
 # ActsAsTrackable
 
