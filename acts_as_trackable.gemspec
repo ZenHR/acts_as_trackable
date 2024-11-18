@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.email                       = ['a.keewan@zenhr.com']
   spec.homepage                    = 'https://www.zenhr.com'
   spec.license                     = 'MIT'
-  spec.required_ruby_version       = Gem::Requirement.new('>= 2.7.2')
+  spec.required_ruby_version       = Gem::Requirement.new('>= 3.1.2')
   spec.metadata["homepage_uri"]    = spec.homepage
   spec.metadata["source_code_uri"] = 'https://github.com/a-keewan/acts_as_trackable'
   spec.metadata["changelog_uri"]   = 'https://github.com/a-keewan/acts_as_trackable/blob/master/changelog.md'
