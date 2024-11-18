@@ -6,10 +6,10 @@ ActsAsTrackable is a gem that simplifies the process of tracking your DB object'
 
 ## Installation
 
-Add this line to your application's Gemfile(For now you have to add it locally v0.1.0):
+Add this line to your application's Gemfile:
 
 ```ruby
-gem 'acts_as_trackable', path: 'path_to_gem'
+gem 'acts_as_trackable'
 ```
 
 And then execute:
@@ -35,7 +35,7 @@ After that run the following commands:
   acts_as_trackable
   ```
 
-- If your model is expected to have multiple version of each object, pass the column that tracks the version to acts_as_trackable as a symbol, acts_as_trackable is smart enough to relink the object_activity with the latest version(Previous versions won't be linked to any activity):
+- If your model is expected to have multiple versions of each object, pass the column that tracks the version to acts_as_trackable as a symbol, acts_as_trackable is smart enough to relink the object_activity with the latest version(Previous versions won't be linked to any activity):
 
   ```ruby
   acts_as_trackable :latest_x_version_id
@@ -51,9 +51,22 @@ After that run the following commands:
   ```
 
 
-- Joining your records with objects_activities:
+- Joining your records with objects_activities for Sorting, Searching, and Filtering:
   ```ruby
   @records.left_joins_object_activities(['YourUserModelClassName'])
+  ```
+
+
+- Fetching an object's owners/modifiers:
+  ```ruby
+  @record.created_by
+  @record.updated_by
+  ```
+
+- Fetching object_activities created/updated by user:
+  ```ruby
+  @user.object_activities_as_creator
+  @user.object_activities_as_updater
   ```
 ## Development
 
