@@ -1,5 +1,7 @@
 # acts_as_trackable Changelog
-
+## Version: 0.2.1
+  ### Patch
+    - Upgraded dependencies to patch https://github.com/rails/rails-html-sanitizer/security/advisories/GHSA-rxv5-gxqc-xx8g
 ## Version: 0.2.0
   ### Patch
     - Upgraded all used dependencies to patch https://github.com/advisories/GHSA-vv62-jfwq-693v mainly caused by using nokogiri
