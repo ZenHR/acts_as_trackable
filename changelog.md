@@ -1,4 +1,7 @@
 # acts_as_trackable Changelog
+## Version: 0.2.2
+  ### Patch
+    - Upgraded dependencies to patch https://security.snyk.io/vuln/SNYK-RUBY-ACTIONPACK-8496389
 ## Version: 0.2.1
   ### Patch
     - Upgraded dependencies to patch https://github.com/rails/rails-html-sanitizer/security/advisories/GHSA-rxv5-gxqc-xx8g
