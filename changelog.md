@@ -1,4 +1,7 @@
 # acts_as_trackable Changelog
+## Version: 0.2.3
+  ### Patch
+    - Upgraded dependencies to patch https://nvd.nist.gov/vuln/detail/CVE-2025-25184
 ## Version: 0.2.2
   ### Patch
     - Upgraded dependencies to patch https://security.snyk.io/vuln/SNYK-RUBY-ACTIONPACK-8496389
