@@ -1,4 +1,7 @@
 # acts_as_trackable Changelog
+## Version: 0.2.4
+  ### Patch
+    - Upgraded dependencies to patch CVE-2025-24928 and CVE-2024-56171
 ## Version: 0.2.3
   ### Patch
     - Upgraded dependencies to patch https://nvd.nist.gov/vuln/detail/CVE-2025-25184
