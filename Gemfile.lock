@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    acts_as_trackable (0.2.4)
+    acts_as_trackable (0.2.5)
 
 GEM
   remote: https://rubygems.org/
@@ -77,7 +77,7 @@ GEM
       date
       stringio
     racc (1.8.1)
-    rack (3.1.10)
+    rack (3.1.12)
     rack-session (2.1.0)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
