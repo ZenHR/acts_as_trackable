@@ -15,7 +15,7 @@ ActiveRecord::Schema.define do
 
   create_table :posts, force: true do |t|
     t.string :title
-    t.references :modifier, polymorphic: true
+    t.string :class_name, null: false, default: 'Post'
   end
 
   create_table :object_activities, force: true do |t|
@@ -31,7 +31,13 @@ class User < ActiveRecord::Base
 end
 
 class Post < ActiveRecord::Base
+  self.inheritance_column = :class_name
+
   acts_as_trackable
+end
+
+class Comment < Post
+  acts_as_trackable fallback_to_base_class: true
 end
 
 class ObjectActivity < ActiveRecord::Base
