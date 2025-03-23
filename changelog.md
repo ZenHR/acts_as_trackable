@@ -1,4 +1,11 @@
 # acts_as_trackable Changelog
+## Version: 0.3.1
+  ### Patch
+    - Updated README
+## Version: 0.3.0
+  ### Patch
+    - Added support to treat STI models as one model
+    - Upgraded dependencies to patch CVE-2025-24855 and CVE-2024-55549
 ## Version: 0.2.5
   ### Patch
     - Upgraded dependencies to patch CVE-2025-27111 and CVE-2025-27610

@@ -1,3 +1,3 @@
 module ActsAsTrackable
-  VERSION = '0.2.5'.freeze
+  VERSION = '0.3.1'.freeze
 end

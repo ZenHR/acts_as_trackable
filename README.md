@@ -45,6 +45,18 @@ After that run the following commands:
     ```ruby
     acts_as_modifier
     ```
+- For STI models, set the following attribute to true to save the child class's object type as the parent class's (base_class) object type:
+  ```ruby
+  class Post < ActiveRecord::Base
+  self.inheritance_column = :class_name
+
+    acts_as_trackable
+  end
+
+  class Comment < Post
+    acts_as_trackable fallback_to_base_class: true
+  end
+  ```
 - After that, you need to pass the user to the modifier attribute from your controller(or basically anywhere) to your update/create statements as follows(If you don't pass the modifier, track me will simply ignore creating/updating the object activity):
   ```ruby
   YourTrackableModel.update(modifier: @current_user)

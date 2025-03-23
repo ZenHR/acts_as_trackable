@@ -8,6 +8,10 @@ module Trackable
 
     has_one :object_activity, as: :object, dependent: :destroy
 
+    define_method :object_activity do
+      ObjectActivity.find_by('object_id = ? AND (object_type = ? OR object_type = ?)', id, self.class.name, self.class.base_class.name)
+    end
+
     delegate :created_by, :updated_by, to: :object_activity, allow_nil: true
 
     after_commit :log_object_activity, on: %i[create update], if: -> { modifier.present? }
@@ -44,7 +48,13 @@ module Trackable
     end
 
     def trackable_object
-      { object_id: send(self.class.trackable_column), object_type: self.class.name }
+      class_name = if self.class.fallback_to_base_class
+                     self.class.base_class.name
+                   else
+                     self.class.name
+                   end
+
+      { object_id: send(self.class.trackable_column), object_type: class_name }
     end
   end
 end
