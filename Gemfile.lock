@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    acts_as_trackable (0.3.1)
+    acts_as_trackable (0.3.2)
 
 GEM
   remote: https://rubygems.org/
@@ -66,9 +66,9 @@ GEM
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     minitest (5.25.5)
-    nokogiri (1.18.5-arm64-darwin)
+    nokogiri (1.18.8-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.18.5-x86_64-darwin)
+    nokogiri (1.18.8-x86_64-darwin)
       racc (~> 1.4)
     pp (0.6.2)
       prettyprint
