@@ -1,4 +1,7 @@
 # acts_as_trackable Changelog
+## Version: 0.3.2
+  ### Patch
+    - Upgraded dependencies to patch CVE-2025-32414 and CVE-2025-32415
 ## Version: 0.3.1
   ### Patch
     - Updated README
