@@ -1,4 +1,8 @@
 # acts_as_trackable Changelog
+## Version: 0.4.0
+  ### Minor
+    - Performance Improvement: The `object_activity` method now memoizes results.
+    - Migration Required: Replace `Preloader` calls with `includes(:object_activity)` for bulk loading.
 ## Version: 0.3.5
   ### Patch
     - Upgraded dependencies to patch CVE-2022-44571
