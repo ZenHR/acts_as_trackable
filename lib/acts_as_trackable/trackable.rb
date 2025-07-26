@@ -9,8 +9,26 @@ module Trackable
     has_one :object_activity, as: :object, dependent: :destroy
 
     define_method :object_activity do
-      ObjectActivity.find_by('object_id = ? AND (object_type = ? OR object_type = ?)', id, self.class.name, self.class.base_class.name)
+      # Return cached value if already set
+      return @object_activity if defined?(@object_activity)
+
+      # If the association is preloaded use it
+      if association(:object_activity).loaded?
+        loaded = association(:object_activity).target
+
+        if loaded&.object_id == id &&
+          [self.class.name, self.class.base_class.name].include?(loaded.object_type)
+          @object_activity = loaded
+        end
+      end
+
+      # Fallback to DB query if not preloaded or not matched
+      @object_activity ||= ObjectActivity.find_by(
+        object_id: id,
+        object_type: [self.class.name, self.class.base_class.name]
+      )
     end
+
 
     delegate :created_by, :updated_by, to: :object_activity, allow_nil: true
 
