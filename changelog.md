@@ -1,5 +1,8 @@
 # acts_as_trackable Changelog
 ## Version: 0.4.0
+  ### Patch
+    - Upgraded dependencies to patch CVE-2025-6021, CVE-2025-6170, CVE-2025-49794, CVE-2025-49795, CVE-2025-49796, and CVE-2025-54314.
+## Version: 0.4.0
   ### Minor
     - Performance Improvement: The `object_activity` method now memoizes results.
     - Migration Required: Replace `Preloader` calls with `includes(:object_activity)` for bulk loading.
