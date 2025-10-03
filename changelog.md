@@ -1,4 +1,13 @@
 # acts_as_trackable Changelog
+## Version: 0.4.3
+  ### Patch
+    - Performance Fix: Fixed N+1 query issue when accessing `created_by` and `updated_by` after eager loading.
+
+    - The `created_by` and `updated_by` methods now properly respect preloaded associations.
+    - When using `includes(object_activity: [:created_by, :updated_by])` or `Preloader.new(records: records, associations: { object_activity: %i[created_by updated_by] })`, the methods now use the preloaded data instead of triggering additional database queries.
+
+    - Added comprehensive test coverage for N+1 query prevention scenarios.
+    - Migration Note: This is a non-breaking change. Existing code will continue to work, but performance will improve when using nested eager loading.
 ## Version: 0.4.2
   ### Patch
     - Upgraded dependencies to patch CVE-2025-55193.
