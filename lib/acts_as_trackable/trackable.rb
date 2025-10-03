@@ -29,8 +29,37 @@ module Trackable
       )
     end
 
+    # Custom created_by method that respects preloading
+    define_method :created_by do
+      return nil unless object_activity
 
-    delegate :created_by, :updated_by, to: :object_activity, allow_nil: true
+      # Return cached value if already set
+      return @created_by if defined?(@created_by)
+
+      # Check if created_by is preloaded on the object_activity
+      if object_activity.association(:created_by).loaded?
+        @created_by = object_activity.association(:created_by).target
+      else
+        # Fallback to default association behavior
+        @created_by = object_activity.created_by
+      end
+    end
+
+    # Custom updated_by method that respects preloading
+    define_method :updated_by do
+      return nil unless object_activity
+
+      # Return cached value if already set
+      return @updated_by if defined?(@updated_by)
+
+      # Check if updated_by is preloaded on the object_activity
+      if object_activity.association(:updated_by).loaded?
+        @updated_by = object_activity.association(:updated_by).target
+      else
+        # Fallback to default association behavior
+        @updated_by = object_activity.updated_by
+      end
+    end
 
     after_commit :log_object_activity, on: %i[create update], if: -> { modifier.present? }
 
