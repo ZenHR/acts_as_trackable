@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    acts_as_trackable (0.4.3)
+    acts_as_trackable (0.4.4)
 
 GEM
   remote: https://rubygems.org/

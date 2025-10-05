@@ -16,14 +16,17 @@ module Trackable
       if association(:object_activity).loaded?
         loaded = association(:object_activity).target
 
-        if loaded&.object_id == id &&
-          [self.class.name, self.class.base_class.name].include?(loaded.object_type)
-          @object_activity = loaded
+        # Cache the loaded value (even if nil) to avoid fallback query
+        if loaded.nil?
+          return @object_activity = nil
+        elsif loaded[:object_id] == id &&
+              [self.class.name, self.class.base_class.name].include?(loaded.object_type)
+          return @object_activity = loaded
         end
       end
 
       # Fallback to DB query if not preloaded or not matched
-      @object_activity ||= ObjectActivity.find_by(
+      @object_activity = ObjectActivity.find_by(
         object_id: id,
         object_type: [self.class.name, self.class.base_class.name]
       )
@@ -37,12 +40,12 @@ module Trackable
       return @created_by if defined?(@created_by)
 
       # Check if created_by is preloaded on the object_activity
-      if object_activity.association(:created_by).loaded?
-        @created_by = object_activity.association(:created_by).target
-      else
-        # Fallback to default association behavior
-        @created_by = object_activity.created_by
-      end
+      @created_by = if object_activity.association(:created_by).loaded?
+                      object_activity.association(:created_by).target
+                    else
+                      # Fallback to default association behavior
+                      object_activity.created_by
+                    end
     end
 
     # Custom updated_by method that respects preloading
@@ -53,12 +56,12 @@ module Trackable
       return @updated_by if defined?(@updated_by)
 
       # Check if updated_by is preloaded on the object_activity
-      if object_activity.association(:updated_by).loaded?
-        @updated_by = object_activity.association(:updated_by).target
-      else
-        # Fallback to default association behavior
-        @updated_by = object_activity.updated_by
-      end
+      @updated_by = if object_activity.association(:updated_by).loaded?
+                      object_activity.association(:updated_by).target
+                    else
+                      # Fallback to default association behavior
+                      object_activity.updated_by
+                    end
     end
 
     after_commit :log_object_activity, on: %i[create update], if: -> { modifier.present? }
