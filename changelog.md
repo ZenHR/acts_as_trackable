@@ -1,4 +1,11 @@
 # acts_as_trackable Changelog
+## Version: 0.4.4
+  ### Patch
+    - Critical Fix: Properly cache `nil` when `object_activity` is preloaded but doesn't exist (old records).
+    - Prevents N+1 queries when accessing `created_by`/`updated_by` on records without `object_activity`.
+    - Previously, the fallback query would execute for each record even when using `includes(object_activity: [:created_by, :updated_by])`.
+    - Now correctly returns `nil` without database queries when association is preloaded and empty.
+
 ## Version: 0.4.3
   ### Patch
     - Performance Fix: Fixed N+1 query issue when accessing `created_by` and `updated_by` after eager loading.
