@@ -1,4 +1,9 @@
 # acts_as_trackable Changelog
+## Version: 0.4.5
+  ### Patch
+    - Security Fix: Upgraded Rack dependency from 3.1.16 to 3.1.17 to patch CVE-2025-61771.
+    - Housekeeping: Removed old gem files from version control.
+
 ## Version: 0.4.4
   ### Patch
     - Critical Fix: Properly cache `nil` when `object_activity` is preloaded but doesn't exist (old records).
