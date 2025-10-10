@@ -1,4 +1,8 @@
 # acts_as_trackable Changelog
+## Version: 0.4.6
+  ### Patch
+    - Security Fix: Upgraded Rack dependency from 3.1.17 to 3.1.18 to patch CVE-2025-27610.
+
 ## Version: 0.4.5
   ### Patch
     - Security Fix: Upgraded Rack dependency from 3.1.16 to 3.1.17 to patch CVE-2025-61771.
