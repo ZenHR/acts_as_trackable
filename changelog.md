@@ -1,4 +1,10 @@
 # acts_as_trackable Changelog
+## Version: 0.4.8
+  ### Patch
+    - Removed unused `generator_spec` development dependency, eliminating unnecessary transitive dependencies (railties, actionpack, nokogiri, rack, loofah, etc.).
+    - Removed redundant `activesupport` declaration from Gemfile (already pulled in by activerecord).
+    - Resolves GHSA-wx95-c6cv-8532 (nokogiri) by removing nokogiri from the dependency tree entirely.
+
 ## Version: 0.4.7
   ### Patch
     - Security Fix: Upgraded Rack dependency from 3.1.18 to 3.1.20 to patch CVE-2026-22860 and CVE-2026-25500.
