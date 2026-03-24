@@ -1,4 +1,10 @@
 # acts_as_trackable Changelog
+## Version: 0.4.9
+  ### Patch
+  #### Resolves several CVEs related to ActiveSupport by updating to 7.2.3.1:
+      - CVE-2026-33176
+      - CVE-2026-33169
+      - CVE-2026-33170
 ## Version: 0.4.8
   ### Patch
     - Removed unused `generator_spec` development dependency, eliminating unnecessary transitive dependencies (railties, actionpack, nokogiri, rack, loofah, etc.).
