@@ -1,4 +1,10 @@
 # acts_as_trackable Changelog
+## Version: 0.4.10
+  ### Patch
+  #### Resolves several CVEs related to concurrent-ruby by updating to 1.3.8:
+      - CVE-2026-54904
+      - CVE-2026-54905
+      - CVE-2026-54906
 ## Version: 0.4.9
   ### Patch
   #### Resolves several CVEs related to ActiveSupport by updating to 7.2.3.1:
