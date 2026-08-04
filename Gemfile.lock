@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    acts_as_trackable (0.4.10)
+    acts_as_trackable (0.4.11)
 
 GEM
   remote: https://rubygems.org/
@@ -35,8 +35,8 @@ GEM
     logger (1.7.0)
     minitest (5.27.0)
     securerandom (0.4.1)
-    sqlite3 (2.8.1-arm64-darwin)
-    sqlite3 (2.8.1-x86_64-darwin)
+    sqlite3 (2.9.5-arm64-darwin)
+    sqlite3 (2.9.5-x86_64-darwin)
     timeout (0.6.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
