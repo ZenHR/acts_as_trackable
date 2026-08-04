@@ -1,4 +1,12 @@
 # acts_as_trackable Changelog
+## Version: 0.4.11
+  ### Patch
+  #### Resolves CVEs related to sqlite3 by updating to 2.9.5:
+      - CVE-2026-54619
+      - CVE-2026-54620
+    - `sqlite3` is a test-only dependency and is not a runtime dependency of this gem. No gem code changed in this release.
+    - The supported runtime Ruby version is unchanged at `>= 3.1.2`. Existing applications on Ruby 3.1 can upgrade to this release safely.
+    - Contributors to this repository now need Ruby `>= 3.2` to `bundle install`, since sqlite3 2.9.5 requires it. This affects development only.
 ## Version: 0.4.10
   ### Patch
   #### Resolves several CVEs related to concurrent-ruby by updating to 1.3.8:
